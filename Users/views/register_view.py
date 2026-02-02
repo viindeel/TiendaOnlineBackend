@@ -31,14 +31,13 @@ class PruebaView(APIView):
 
 
 class RegisterView(APIView):
-
     permission_classes = [AllowAny]
 
     def post(self, request):
         data = request.data
         serializer = RegisterSerializer(data=data)
         if serializer.is_valid():
-            print("es valido")
+            serializer.save()
         else:
             print(serializer.errors)
         return Response({"success": True}, status=status.HTTP_200_OK)
