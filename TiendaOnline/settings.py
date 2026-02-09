@@ -31,7 +31,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
 
     #Instanciamos APPS creadas
-    'Users'
+    'Users',
+    'Productos'
 ]
 
 MIDDLEWARE = [

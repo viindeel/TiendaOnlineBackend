@@ -41,4 +41,11 @@ class RegisterView(APIView):
             return Response({"success": True}, status=status.HTTP_200_OK)
         else:
             print(serializer.errors)
-        return Response({"success": False, "errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+        # return Response({"success": False, "errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+        errores = []
+        for error in serializer.errors.values():
+            for e in error:
+                print(e)
+                errores.append(e)
+
+        return Response({"success": False, "errors": errores}, status=status.HTTP_400_BAD_REQUEST)
